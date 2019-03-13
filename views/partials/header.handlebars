@@ -7,17 +7,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">DevConnect</a>
+      <a href="/" class="navbar-brand"><img src="img/logo.png"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="{{#ifeq title 'Home'}}active{{/ifeq}}"><a href="/">Home</a></li>
-        <li class="{{#ifeq title 'About'}}active{{/ifeq}}"><a href="/about">About</a></li>
-        <li class="{{#ifeq title 'Resources'}}active{{/ifeq}}"><a href="/resources">Resources</a></li>
-        <li class="{{#ifeq title 'Forum'}}active{{/ifeq}}"><a href="/forum">Forum</a></li>
+        {{!-- <li class="{{#ifeq title 'Home'}}active{{/ifeq}}"><a href="/">Home</a></li> --}}
+        <li class="{{#ifeq title 'About'}}active{{/ifeq}}"><a href="/about">Programs</a></li>
+        <li class="{{#ifeq title 'Resources'}}active{{/ifeq}}"><a href="/resources">Merchants</a></li>
+        <li class="{{#ifeq title 'Forum'}}active{{/ifeq}}"><a href="/forum">Coins</a></li>
+        <li class="{{#ifeq title 'Forum'}}active{{/ifeq}}"><a href="/forum">Login</a></li>
       </ul>
 
-    <ul class="nav navbar-nav navbar-right">
+    {{!-- USE THIS WHEN USER IS IMPLEMENTED  --}}
+    {{!-- <ul class="nav navbar-nav navbar-right">
     {{#if user}}
       <li class="dropdown">
         <a href="#" data-toggle="dropdown" class="navbar-avatar dropdown-toggle">
@@ -41,9 +43,8 @@
       </li>
     {{else}}
       <li class="{{#ifeq title 'Log in'}}active{{/ifeq}}"><a href="/login">Log in</a></li>
-      <li class="{{#ifeq title 'Sign up'}}active{{/ifeq}}"><a href="/signup">Sign up</a></li>
     {{/if}}
-    </ul> 
+    </ul>  --}}
 
     </div>
   </div>

@@ -1,12 +1,12 @@
 var nodemailer = require('nodemailer');
 
-var transporter = nodemailer.createTransport("SMTP", {
-  service: 'Mailgun',
-  auth: {
-    user: process.env.MAILGUN_USERNAME,
-    pass: process.env.MAILGUN_PASSWORD
-  }
-});
+// var transporter = nodemailer.createTransport("SMTP", {
+//   service: 'Mailgun',
+//   auth: {
+//     user: process.env.MAILGUN_USERNAME,
+//     pass: process.env.MAILGUN_PASSWORD
+//   }
+// });
 
 /**
  * GET /contact
@@ -49,8 +49,8 @@ exports.contactPost = function(req, res) {
   };
 
   // Send email through transporter
-  transporter.sendMail(mailOptions, function(err) {
-    req.flash('success', { msg: 'Thank you! Your feedback has been submitted. '});
-    res.redirect('/about');
-  });
+  // transporter.sendMail(mailOptions, function(err) {
+  //   req.flash('success', { msg: 'Thank you! Your feedback has been submitted. '});
+  //   res.redirect('/about');
+  // });
 };

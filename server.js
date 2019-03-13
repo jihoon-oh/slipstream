@@ -16,7 +16,7 @@ var expressValidator = require('express-validator');
 //var dotenv = require('dotenv');
 var exphbs = require('express-handlebars');
 var mongoose = require('mongoose');
-var passport = require('passport');
+// var passport = require('passport');
 var permission = require('permission');
 var uuidV4 = require('uuid/v4');
 
@@ -41,7 +41,7 @@ var resourcesController  = require('./controllers/resources');
 var forumController     = require('./controllers/forum');
 
 // Passport OAuth strategies
-require('./config/passport');
+// require('./config/passport');
 
 var app = express();
 
@@ -88,15 +88,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
-app.use(methodOverride('_method'));
-app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(function(req, res, next) {
-  res.locals.user = req.user;
-  next();
-});
+// app.use(methodOverride('_method'));
+// app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
+// app.use(flash());
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(function(req, res, next) {
+//   res.locals.user = req.user;
+//   next();
+// });
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', HomeController.index);
@@ -117,10 +117,10 @@ app.get('/reset/:token', userController.resetGet);
 app.post('/reset/:token', userController.resetPost);
 app.get('/logout', userController.logout);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
-app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
-app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
-app.get('/auth/github', passport.authenticate('github', { scope: [ 'user:email profile repo' ] }));
-app.get('/auth/github/callback', passport.authenticate('github', { successRedirect: '/', failureRedirect: '/login' }));
+// app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
+// app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
+// app.get('/auth/github', passport.authenticate('github', { scope: [ 'user:email profile repo' ] }));
+// app.get('/auth/github/callback', passport.authenticate('github', { successRedirect: '/', failureRedirect: '/login' }));
 app.post('/forum/delete/:postid', require('permission')(['admin']), forumController.deletePost);
 
 //code for the forum page
